@@ -67,7 +67,10 @@ const FormikContainer = () => {
     checkboxOption: Yup.array().required('Required'),
     birthDate: Yup.date().required('Required').nullable()
   })
-  const onSubmit = (values) => console.log('Form data', values)
+  const onSubmit = (values) => {
+    console.log('Form data', values)
+    console.log('Saved data', JSON.parse(JSON.stringify(values)))
+  }
 
   return (
     <Formik initialValues={initialValues} validationSchema={validateSchema} onSubmit={onSubmit}>
